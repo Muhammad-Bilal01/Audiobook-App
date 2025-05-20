@@ -1,19 +1,21 @@
 import "./global.css"
 
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, FlatList } from 'react-native';
 import books from "./src/dummyBooks";
-import AntDesign from '@expo/vector-icons/AntDesign';
 import BookListItem from "./src/components/BookListItem";
 
 export default function App() {
   return (
-    <View className="bg-slate-800 flex-1 justify-center p-4">
+    <View className="bg-slate-800 flex-1 justify-center p-4 pt-12">
 
       {/* Book Row */}
-      <BookListItem book={books[0]} />
-      <BookListItem book={books[1]} />
-      <BookListItem book={books[2]} />
+      <FlatList
+        data={books}
+        contentContainerClassName="gap-4" // parent list styling
+        renderItem={({ item }) => (<BookListItem book={item} />)}
+      />
+
 
       {/* Status Bar */}
       <StatusBar style="light" />
