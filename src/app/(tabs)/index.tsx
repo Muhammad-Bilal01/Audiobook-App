@@ -1,9 +1,9 @@
-import "./global.css"
+import "./../../../global.css"
 
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, Image, FlatList } from 'react-native';
-import books from "./src/dummyBooks";
-import BookListItem from "./src/components/BookListItem";
+import books from "../../dummyBooks";
+import BookListItem from "../../components/BookListItem";
 
 export default function App() {
   return (
@@ -18,7 +18,7 @@ export default function App() {
 
 
       {/* Status Bar */}
-      <StatusBar style="light" />
+      <StatusBar style="light" backgroundColor="#1E293B" />
     </View>
   );
 }

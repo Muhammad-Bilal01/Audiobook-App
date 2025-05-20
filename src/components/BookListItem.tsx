@@ -20,10 +20,11 @@ export default function BookListItem({ book }: BookListItemProps) {
             <Image source={{ uri: book.thumbnail_url }} className="w-24 aspect-square rounded-md" />
 
             <View className="flex-1 gap-1">
-                <Text className="text-2xl text-gray-100 font-bold">{book.title}</Text>
+                <Text className="text-xl text-gray-100 font-bold">{book.title}</Text>
                 <Text className="text-gray-400">{book.author}</Text>
+                <View className='flex-1'></View>
             </View>
-            <AntDesign name="playcircleo" size={24} color={'gainsboro'} />
+            <AntDesign name="playcircleo" size={20} color={'gainsboro'} />
         </View>
     );
 }
