@@ -2,14 +2,18 @@ import { Redirect, Tabs } from "expo-router";
 import Ionicons from '@expo/vector-icons/Ionicons';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { useAuth } from "@clerk/clerk-expo";
-import { ActivityIndicator, View } from "react-native";
+import { ActivityIndicator, Text, View } from "react-native";
+import { BottomTabBar } from "@react-navigation/bottom-tabs";
+import FloatingPlayer from "@/components/FloatingPlayer";
 
 export default function TasbLayout() {
-
-
-    return <Tabs screenOptions={{
-        tabBarShowLabel: false,
-    }}>
+    return <Tabs
+        tabBar={(props) => <>
+            <FloatingPlayer />
+            <BottomTabBar {...props} />
+        </>
+        }
+    >
         <Tabs.Screen name="index" options={{
             title: "Library",
             tabBarIcon: ({ size, color }) => <Ionicons name="library" size={size} color={color} />
