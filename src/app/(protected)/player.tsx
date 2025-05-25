@@ -4,11 +4,18 @@ import { router } from "expo-router";
 import dummyBooks from "@/dummyBooks";
 import { SafeAreaView } from "react-native-safe-area-context";
 import PlaybackBar from "@/components/PlaybackBar";
+import { useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
+import { StatusBar } from "expo-status-bar";
 
-export default function Player() {
+export default function PlayerScreen() {
     const book = dummyBooks[0]
+    const player = useAudioPlayer({ uri: book.audio_url });
+    const playerStatus = useAudioPlayerStatus(player)
+
+    // console.log(JSON.stringify(playerStatus, null, 2))
+
     return (
-        <SafeAreaView className="flex-1 bg-slate-950 p-4 pt-20 gap-4 ">
+        <SafeAreaView className="flex-1 p-4 pt-20 gap-4 ">
             <Pressable className="absolute top-12 left-4 bg-gray-800 rounded-full p-2"
                 onPress={() => router.back()}
             >
@@ -24,13 +31,19 @@ export default function Player() {
                 <Text className="text-2xl text-white text-center">{book.title}</Text>
 
                 {/* Player Bar */}
-                <PlaybackBar value={0.1} />
+                <PlaybackBar
+                    currentTime={playerStatus.currentTime}
+                    duration={playerStatus.duration}
+                    onSeek={(seconds: number) => player.seekTo(seconds)}
+                />
 
                 {/* Player Control Button */}
                 <View className='flex-row items-center justify-between mt-8'>
                     <Ionicons name='play-skip-back' size={24} color='white' />
                     <Ionicons name='play-back' size={24} color='white' />
-                    <Ionicons name='play' size={50} color='white' />
+
+                    <Ionicons name={!playerStatus.playing ? 'play' : "pause"} onPress={() => !playerStatus.playing ? player.play() : player.pause()} size={50} color='white' />
+
                     <Ionicons name='play-forward' size={24} color='white' />
                     <Ionicons name='play-skip-forward' size={24} color='white' />
                 </View>

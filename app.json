@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "AudibleClone",
-    "scheme": "AudibleClone", 
+    "scheme": "AudibleClone",
     "slug": "AudibleClone",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -28,7 +28,13 @@
       "bundler": "metro"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      [
+        "expo-audio",
+        {
+          "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone."
+        }
+      ]
     ]
   }
 }
