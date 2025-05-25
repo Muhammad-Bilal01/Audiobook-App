@@ -6,10 +6,15 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import PlaybackBar from "@/components/PlaybackBar";
 import { useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 import { StatusBar } from "expo-status-bar";
+import { usePlayer } from "../providers/PlayerProvider";
 
 export default function PlayerScreen() {
-    const book = dummyBooks[0]
-    const player = useAudioPlayer({ uri: book.audio_url });
+
+
+    // const player = useAudioPlayer({ uri: book.audio_url });
+    // const playerStatus = useAudioPlayerStatus(player)
+
+    const { player, book } = usePlayer()
     const playerStatus = useAudioPlayerStatus(player)
 
     // console.log(JSON.stringify(playerStatus, null, 2))
