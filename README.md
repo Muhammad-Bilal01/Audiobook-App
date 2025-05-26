@@ -19,11 +19,11 @@ A sleek and modern **React Native Expo** application that allows users to browse
 
 ## 📸 Screenshots
 
-| Screen              | Preview                                                    |
-| ------------------- | ---------------------------------------------------------- |
-| 🏠 **Home Screen**  | ![Home Screen](./screenshots/home%20-%20audiobook.jpg)     |
-| 🎧 **Audio Player** | ![Player Screen](./screenshots/Player%20-%20AudioBook.jpg) |
-| 👤 **User Profile** | ![Login Screen](./screenshots/login%20-%20audiobook.jpg)   |
+| Screen              | Preview                                                             |
+| ------------------- | ------------------------------------------------------------------- |
+| 🏠 **Home Screen**  | <img src="./screenshots/home%20-%20audiobook.jpg" height="300"/>    |
+| 🎧 **Audio Player** | <img src="./screenshots/Player%20-%20AudioBook.jpg"  height="300"/> |
+| 👤 **User Profile** | <img src="./screenshots/login%20-%20audiobook.jpg" height="300"/>   |
 
 ---
 
